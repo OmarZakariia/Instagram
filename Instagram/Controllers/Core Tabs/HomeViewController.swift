@@ -17,7 +17,7 @@ class HomeViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        handleNotAuthenticated()
+         handleNotAuthenticated()
     }
     
     private func handleNotAuthenticated(){
@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
             let loginVC = LoginViewController()
             loginVC.modalPresentationStyle = .fullScreen // that way user cant swipe it away 
             
-            present(loginVC, animated: true)
+            present(loginVC, animated: false)
         }
     }
     
