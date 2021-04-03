@@ -34,3 +34,13 @@ extension UIView{
         return frame.origin.x + frame.size.width
     }
 }
+
+//MARK:- String Extension
+extension String{
+    // for creating a safe email
+     func safeDatabaseKey() -> String  {
+       
+        return self.replacingOccurrences(of: ".", with: "-").replacingOccurrences(of: "@", with: "-")
+    }
+}
+

@@ -7,6 +7,7 @@
 
 import SafariServices
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
     
@@ -16,6 +17,7 @@ class LoginViewController: UIViewController {
     }
     
     override func viewDidLoad() {
+        // Add functions created for the buttons to the buttons
         loginButton.addTarget(self, action: #selector(didTapLoginButton), for: .touchUpInside) // touch up inside is the basic tap
         
         createAcountButton.addTarget(self, action: #selector(didTapCreateAccountButton), for: .touchUpInside)
@@ -206,7 +208,37 @@ class LoginViewController: UIViewController {
               let password = passwordTextFeild.text, !password.isEmpty, password.count >= 8 else{
             return
         }
+        
+        var username: String?
+        var email: String?
+        
         // Implement login functionality
+        if usernameEmail.contains("@"), usernameEmail.contains("."){
+            // assume that its an email
+            email = usernameEmail
+            
+        } else {
+            // assume that its a username
+            username = usernameEmail
+            }
+        AuthManager.shared.loginUser(username: username, email: email, password: password) { success  in
+            DispatchQueue.main.async {
+                if success {
+                    // user logged in
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    // error occurred
+                    let alert = UIAlertController(title: "Log in error", message: "We were unable to log you in.", preferredStyle: .alert)
+                    
+                    let action = UIAlertAction(title: "Dismiss", style: .cancel, handler: nil)
+                    
+                    alert.addAction(action)
+                    self.present(alert, animated: true)
+                }
+            }
+            
+            
+        }
         
     }
     
@@ -233,8 +265,11 @@ class LoginViewController: UIViewController {
     }
     
     @objc private func didTapCreateAccountButton() {
+        // create a navigation controller
         let vc = RegistrationViewController()
-        present(vc, animated: true)
+        vc.title = "Create Account"
+        
+        present(UINavigationController(rootViewController: vc), animated: true )
     }
     
 }
