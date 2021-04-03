@@ -16,7 +16,7 @@ class RegistrationViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        regiterButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
+        regsiterButton.addTarget(self, action: #selector(didTapRegisterButton), for: .touchUpInside)
         
         // Delegates for the fields
         usernameField.delegate = self
@@ -26,7 +26,7 @@ class RegistrationViewController: UIViewController {
         view.addSubview(usernameField)
         view.addSubview(emailField)
         view.addSubview(passwordTextFeild)
-        view.addSubview(regiterButton)
+        view.addSubview(regsiterButton)
         
         
         view.backgroundColor = .systemBackground
@@ -42,7 +42,7 @@ class RegistrationViewController: UIViewController {
         
         passwordTextFeild.frame = CGRect(x: 20, y: emailField.bottom + 10, width: view.width - 40, height: 52)
         
-        regiterButton.frame = CGRect(x: 20, y: passwordTextFeild.bottom + 10, width: view.width - 40, height: 52)
+        regsiterButton.frame = CGRect(x: 20, y: passwordTextFeild.bottom + 10, width: view.width - 40, height: 52)
     }
     
     
@@ -98,7 +98,7 @@ class RegistrationViewController: UIViewController {
     
     //MARK: - Buttons
     
-    private let regiterButton: UIButton = {
+    private let regsiterButton: UIButton = {
         let button =  UIButton()
         button.setTitle("Sign Up", for: .normal)
         button.layer.masksToBounds = true
@@ -123,6 +123,7 @@ class RegistrationViewController: UIViewController {
         let username = usernameField.text, !username.isEmpty else {
             return
         }
+        
         // Registering the user into the database
         AuthManager.shared.registerNewUser(username: username, email: email, password: password) { registered in
             DispatchQueue.main.async {

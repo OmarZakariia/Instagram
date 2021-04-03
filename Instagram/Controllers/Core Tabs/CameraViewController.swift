@@ -6,16 +6,21 @@
 //
 
 import UIKit
+import AVFoundation
 
 class CameraViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        navigationController?.setNavigationBarHidden(true, animated: false)
+        
     }
     
-
+//MARK:- Functions for buttons
+    private func didTapTakePicture(){
+        
+    }
    
 
 }

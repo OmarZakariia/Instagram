@@ -22,7 +22,7 @@ public class AuthManager {
         DatabaseManager.shared.canCreateNewUser(with: email, username: username){ canCreate in
             if canCreate {
 //                - Create account
-//                - Inser account to database
+//                - Insert/ account to database
                 Auth.auth().createUser(withEmail: email, password: password) { result, error in
                     guard  error == nil, result != nil else {
                         //Firebase auth could not create an account
@@ -67,6 +67,19 @@ public class AuthManager {
             // username logged in
             print(username)
          
+        }
+    }
+    /// Attempt to logout firebase user 
+    public func logOut(completion: @escaping(Bool)-> Void ){
+        do {
+            try Auth.auth().signOut()
+            completion(true)
+            return
+        }
+        catch{
+            print(error)
+            completion(false)
+            return
         }
     }
 }

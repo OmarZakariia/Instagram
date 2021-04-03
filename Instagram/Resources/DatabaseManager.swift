@@ -29,7 +29,7 @@ public class DatabaseManager {
     /// - Parameters
     ///     - email: String representing email
     ///     - username: String representing username
-    ///     - completion: Async call for result if database entry succeede
+    ///     - completion: Async call for result if database entry succeeded
     
     public func insertNewUser(with email: String, username: String, completion: @escaping(Bool)-> Void){
         // to use the database
