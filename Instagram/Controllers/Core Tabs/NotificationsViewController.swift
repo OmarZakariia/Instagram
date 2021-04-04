@@ -21,7 +21,6 @@ class NotificationsViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewDidLoad()
 
         title = "Notifications"
-        tabBarItem.title = ""
         view.backgroundColor = .systemBackground
         tableView.dataSource = self
         tableView.delegate = self

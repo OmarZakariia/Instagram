@@ -7,7 +7,7 @@
 
 import UIKit
 
-/// Profile View Controller 
+/// Profile View Controller c
 final class ProfileViewController: UIViewController {
 
     //CollectionView
@@ -65,7 +65,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // gets called when the user taps on a item on the cells
+        // gets called when the user taps on an item on the cells
         collectionView.deselectItem(at: indexPath, animated: true)
     }
     

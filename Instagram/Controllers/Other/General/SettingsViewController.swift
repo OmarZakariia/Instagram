@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import SafariServices
 
 
 
@@ -22,8 +23,6 @@ final class SettingsViewController: UIViewController {
     private let tableView: UITableView = {
         let tableView = UITableView(frame: .zero, style: .grouped)
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
-        
-        
         
         return tableView
     }()
@@ -45,6 +44,11 @@ final class SettingsViewController: UIViewController {
         // assign frames
         tableView.frame = view.bounds
         
+    }
+    
+    //MARK:-   Enums and Structs
+    enum SettingsURLType {
+        case terms, privacy, help
     }
     
     //MARK:- Functions for buttons interactions
@@ -82,15 +86,88 @@ final class SettingsViewController: UIViewController {
         present(actionSheet, animated: true)
         
     }
+    private func didTapSaveOriginalPosts(){
+        
+    }
+    
+    private func didTapEditProfile(){
+        let vc = EditProfileViewController()
+        vc.title = "Edit Profile"
+        
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+        
+    }
+    
+    private func didTapInviteFriends(){
+        // Show share sheet to invite friends
+    }
+    
+   
+    
+    private func openURL(type: SettingsURLType){
+        
+        let urlString : String
+        
+        switch type {
+        case .terms: urlString = "https://www.instagram.com/about/legal/terms/before-january-19-2013/"
+        case .privacy: urlString = "https://help.instagram.com/519522125107875"
+        case .help: urlString = "https://help.instagram.com"
+        }
+        
+        guard let url = URL(string: urlString) else {
+            return
+        }
+        
+        let vc = SFSafariViewController(url: url)
+        present(vc, animated: true)
+    }
     
     //MARK:- Functions
     private func configureModels() {
-        let section = [
-            SettingCellModel(title: "Log Out") { [weak self] in
+        data.append([
+            SettingCellModel(title: "Edit Profile", handler: { [weak self] in
+                self?.didTapEditProfile()
+                
+                
+            }),
+            SettingCellModel(title: "Invite Friends", handler: { [weak self] in
+                self?.didTapInviteFriends()
+                
+            }),
+            SettingCellModel(title: "Save Original Posts", handler: { [weak self] in
+                self?.didTapSaveOriginalPosts()
+            })
+        ])
+        
+       
+
+        data.append([
+            SettingCellModel(title: "Terms Of Service", handler: { [weak self] in
+                self?.openURL(type: .terms)
+                
+            })
+        ])
+
+        data.append([
+            SettingCellModel(title: "Privacy Policy", handler: { [weak self] in
+                self?.openURL(type: .privacy)
+                
+            })
+        ])
+        
+        data.append([
+            SettingCellModel(title: "Help / Feeedback", handler: { [weak self] in
+                self?.openURL(type: .help)
+            })
+        ])
+        
+        
+        data.append([
+            SettingCellModel(title: "Log Out", handler: { [weak self] in
                 self?.didTapLogout()
-            }
-        ]
-        data.append(section)
+            })
+        ])
     }
     
 }
@@ -108,6 +185,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         cell.textLabel?.text = data[indexPath.section][indexPath.row].title
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
