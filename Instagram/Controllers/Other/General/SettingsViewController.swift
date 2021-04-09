@@ -18,6 +18,8 @@ struct SettingCellModel {
 /// View Controller to show user settings
 final class SettingsViewController: UIViewController {
     
+    
+    
     //MARK:- Variables and Constants
     // final wont allow anyone to subclass the class
     private let tableView: UITableView = {
@@ -95,6 +97,7 @@ final class SettingsViewController: UIViewController {
         vc.title = "Edit Profile"
         
         let navVC = UINavigationController(rootViewController: vc)
+        navVC.modalPresentationStyle = .fullScreen 
         present(navVC, animated: true)
         
     }
