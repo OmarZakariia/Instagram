@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3009F6AC26208F240062F337 /* FormTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3009F6AB26208F240062F337 /* FormTableViewCell.swift */; };
+		3015078F2623663B006A24B6 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3015078E2623663B006A24B6 /* Models.swift */; };
 		30448DB1260CDC3B00C176A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30448DB0260CDC3B00C176A3 /* AppDelegate.swift */; };
 		30448DB3260CDC3B00C176A3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30448DB2260CDC3B00C176A3 /* SceneDelegate.swift */; };
 		30448DB5260CDC3B00C176A3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30448DB4260CDC3B00C176A3 /* HomeViewController.swift */; };
@@ -46,6 +47,7 @@
 /* Begin PBXFileReference section */
 		11CA8BC1F6C36BD916923EBD /* Pods_Instagram.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Instagram.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3009F6AB26208F240062F337 /* FormTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormTableViewCell.swift; sourceTree = "<group>"; };
+		3015078E2623663B006A24B6 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		30448DAD260CDC3B00C176A3 /* Instagram.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Instagram.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		30448DB0260CDC3B00C176A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30448DB2260CDC3B00C176A3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -149,6 +151,7 @@
 		30448DC7260CDC9100C176A3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3015078E2623663B006A24B6 /* Models.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				30C9F197261A0C8D00B34F39 /* IGFeedPostHeaderTableViewCell.swift in Sources */,
 				30448DE2260CDD5F00C176A3 /* PostViewController.swift in Sources */,
 				30460F2F260CE69F00891F79 /* StorageManager.swift in Sources */,
+				3015078F2623663B006A24B6 /* Models.swift in Sources */,
 				3009F6AC26208F240062F337 /* FormTableViewCell.swift in Sources */,
 				30448DB1260CDC3B00C176A3 /* AppDelegate.swift in Sources */,
 				30460F28260CE56F00891F79 /* DatabaseManager.swift in Sources */,

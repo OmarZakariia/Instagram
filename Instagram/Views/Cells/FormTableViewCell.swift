@@ -65,10 +65,14 @@ class FormTableViewCell: UITableViewCell, UITextFieldDelegate {
     
      override func prepareForReuse() {
          super.prepareForReuse()
-        if contentView.subviews.count > 0 {
-            formLabel.removeFromSuperview()
-            field.removeFromSuperview()
-        }
+//        if contentView.subviews.count > 0 {
+//            formLabel.removeFromSuperview()
+//            field.removeFromSuperview()
+//        }
+        
+        formLabel.text = nil
+        field.placeholder = nil
+        field.text = nil
          
      }
 

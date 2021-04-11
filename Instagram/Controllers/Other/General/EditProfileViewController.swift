@@ -126,6 +126,7 @@ final class  EditProfileViewController: UIViewController,  UITableViewDataSource
                                             width: size,
                                             height: size))
         
+        
         header.addSubview(profilePhotoButton)
         // to make the button circular
         profilePhotoButton.layer.masksToBounds = true

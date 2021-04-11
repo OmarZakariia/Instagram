@@ -7,6 +7,7 @@ use_frameworks!
 
 # Pods for Instagram
 pod 'Appirater'
+pod 'SDWebImage'
 
 # Pods for Firebase
     pod 'Firebase/Core'
@@ -15,5 +16,6 @@ pod 'Appirater'
     pod 'Firebase/Analytics'
     pod 'Firebase/Crashlytics'
     pod 'Firebase/Storage'
+    
 
 end

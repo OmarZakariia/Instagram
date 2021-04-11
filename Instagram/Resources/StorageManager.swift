@@ -7,22 +7,18 @@
 
 import FirebaseStorage
 
+
+
+
+
 public class StorageManager {
     //MARK:- Structs and Enums
-    enum UserPostType {
-        case photo
-        case video
-    }
-    
-   public struct UserPost {
-    let postType : UserPostType
-    }
     
     // Creating my own error
     public enum IGStorageManagerError: Error {
         case failedToDownload
     }
-   
+    
     
     
     //MARK:- Variables and Constants
@@ -31,7 +27,7 @@ public class StorageManager {
     private let bucket = Storage.storage().reference()
     
     //MARK: - Public
-   // Function for our entire app can use
+    // Function for our entire app can use
     public func uploadUserPost(model: UserPost, completion: @escaping (Result<URL, Error>)-> Void){
         
     }
@@ -41,7 +37,7 @@ public class StorageManager {
             guard let url = url, error == nil else{
                 completion(.failure(.failedToDownload))
                 return
-        }
+            }
             completion(.success(url))
         }
     }
